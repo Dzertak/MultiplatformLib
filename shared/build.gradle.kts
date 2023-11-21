@@ -10,9 +10,9 @@ version = "1.0.0"
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
-    targetHierarchy.default()
-
-    android {
+    applyDefaultHierarchyTemplate()
+    //targetHierarchy.default()
+    androidTarget{
         compilations.all {
             kotlinOptions {
                 jvmTarget = "1.8"
