@@ -12,7 +12,7 @@
       - mvn install:install-file $FILE
       - DgroupId=com.github.dzertak
       - DartifactId=com.trackensure.multiplatformlib
-      - Dversion=1.0.2
+      - Dversion=1.0.3
       - Dpackaging=aar
       - DgeneratePom=true
       #com.github.geek-atif                      #com-atifqamar-customtoast  #1.0

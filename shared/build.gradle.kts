@@ -19,7 +19,7 @@ kotlin {
         publishLibraryVariants("release", "debug")
         compilations.all {
             kotlinOptions {
-                jvmTarget = "1.8"
+                jvmTarget = "17"
             }
         }
     }
@@ -76,14 +76,14 @@ publishing {
         register<MavenPublication>("release",) {
             groupId = "com.github.dzertak"
             artifactId = "com.trackensure.multiplatformlib"
-            version = "1.0.2"
+            version = "1.0.3"
             pom {
                 description.set("First release")
             }
-//            afterEvaluate {
-//                //artifact(tasks.getByName("bundleRelease"))
-//                //from(components["release"])
-//            }
+            afterEvaluate {
+                //artifact(tasks.getByName("bundleRelease"))
+                //from(components["release"])
+            }
         }
         repositories {
             maven {
