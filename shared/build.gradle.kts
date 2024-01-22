@@ -5,14 +5,18 @@ plugins {
         //id("convention.publication")
 }
 
-group = "com.multiplatform.lib.base64"
-version = "1.0.0"
+//group = "com.multiplatform.lib.base64"
+//version = "1.0.0"
+
+
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
 kotlin {
     applyDefaultHierarchyTemplate()
     //targetHierarchy.default()
+
     androidTarget{
+        publishLibraryVariants("release", "debug")
         compilations.all {
             kotlinOptions {
                 jvmTarget = "1.8"
@@ -49,5 +53,43 @@ android {
     compileSdk = 33
     defaultConfig {
         minSdk = 24
+    }
+    testFixtures {
+        enable = true
+    }
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))        // << --- ADD This
+    }
+}
+//===============================
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17            // << --- ADD This
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+publishing {
+    publications {
+        register<MavenPublication>("release",) {
+            groupId = "com.github.dzertak"
+            artifactId = "com.trackensure.multiplatformlib"
+            version = "1.0.0"
+            pom {
+                description.set("First release")
+            }
+//            afterEvaluate {
+//                //artifact(tasks.getByName("bundleRelease"))
+//                //from(components["release"])
+//            }
+        }
+        repositories {
+            maven {
+                name = "myrepoBase64"
+                url = uri("${project.buildDir}/repo")
+            }
+        }
     }
 }
