@@ -72,14 +72,14 @@ java {
 }
 
 group = "com.github.dzertak"
-version = "1.0.4"
+version = "1.0.5"
 
 publishing {
     publications {
         register<MavenPublication>("multiplatformlib") {
             groupId = "com.github.dzertak"
             artifactId = "multiplatformlib"
-            version = "1.0.4"
+            version = "1.0.5"
             pom {
                 description.set("First release")
             }
