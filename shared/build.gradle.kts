@@ -71,12 +71,15 @@ java {
     targetCompatibility = JavaVersion.VERSION_17
 }
 
+group = "com.github.dzertak"
+version = "1.0.4"
+
 publishing {
     publications {
-        register<MavenPublication>("release",) {
+        register<MavenPublication>("multiplatformlib") {
             groupId = "com.github.dzertak"
-            artifactId = "com.trackensure.multiplatformlib"
-            version = "1.0.3"
+            artifactId = "multiplatformlib"
+            version = "1.0.4"
             pom {
                 description.set("First release")
             }
@@ -87,7 +90,7 @@ publishing {
         }
         repositories {
             maven {
-                name = "myrepoBase64"
+                name = "multiplatformlib"
                 url = uri("${project.buildDir}/repo")
             }
         }

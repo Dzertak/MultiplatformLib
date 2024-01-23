@@ -8,11 +8,11 @@
     before_install:
       - ./scripts/prepareJitpackEnvironment.sh
     install:
-      - FILE="-Dfile=com-multiplatform-lib.aar" #com-atifqamar-customtoast.aar
+      - FILE="-Dfile=shared-debug.aar" #com-atifqamar-customtoast.aar
       - mvn install:install-file $FILE
       - DgroupId=com.github.dzertak
-      - DartifactId=com.trackensure.multiplatformlib
-      - Dversion=1.0.3
+      - DartifactId=multiplatformlib
+      - Dversion=1.0.4
       - Dpackaging=aar
       - DgeneratePom=true
       #com.github.geek-atif                      #com-atifqamar-customtoast  #1.0
